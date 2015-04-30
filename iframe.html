@@ -69,21 +69,13 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function(){
+  $(function(){
+    $(window).on('load resize', adjustIframes);
+  });
 
-	$( document ).ready(resizeFrame);
-	$( window ).load(resizeFrame);
-  $( window ).resize(resizeFrame);
-
-});
-
-function resizeFrame(){
-	var windowHeight = $("html").css("height");
-
-	var iFrame = parent.document.getElementById("responsive-iframe");
-	
-  $(iFrame).css("height",windowHeight);
-}
+  function adjustIframes() {
+    $(parent.document.getElementById("responsive-iframe")).css("height", $("html").css("height"));
+  }
 </script>
 
 </body>
